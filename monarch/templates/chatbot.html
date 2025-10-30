@@ -1,0 +1,64 @@
+{% load static %}
+<!-- Chatbot Widget -->
+<div id="chatbot-container" class="chatbot-container">
+    <!-- Chatbot Toggle Button -->
+    <div id="chatbot-toggle" class="chatbot-toggle">
+        <i class="fas fa-comments"></i>
+        <span class="chatbot-badge" id="chatbot-badge">1</span>
+    </div>
+
+    <!-- Chatbot Window -->
+    <div id="chatbot-window" class="chatbot-window">
+        <!-- Chatbot Header -->
+        <div class="chatbot-header">
+            <div class="chatbot-avatar">
+                <img src="{% static 'images/logo.jpeg' %}" alt="Monastery Guide">
+            </div>
+            <div class="chatbot-info">
+                <h4>Monastery Guide</h4>
+                <span class="chatbot-status">Online</span>
+            </div>
+            <button id="chatbot-close" class="chatbot-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- Chatbot Messages -->
+        <div id="chatbot-messages" class="chatbot-messages">
+            <div class="message bot-message">
+                <div class="message-avatar">
+                    <img src="{% static 'images/logo.jpeg' %}" alt="Bot">
+                </div>
+                <div class="message-content">
+                    <p>🙏 Welcome to Monastery360! I'm here to help you explore Sikkim's sacred monasteries. Ask me about:</p>
+                    <div class="quick-options">
+                        <button class="quick-option" onclick="sendQuickMessage('Tell me about Rumtek Monastery')">Rumtek Monastery</button>
+                        <button class="quick-option" onclick="sendQuickMessage('Show me virtual tours')">Virtual Tours</button>
+                        <button class="quick-option" onclick="sendQuickMessage('How to book a visit?')">Book Visit</button>
+                        <button class="quick-option" onclick="sendQuickMessage('Festival calendar')">Festivals</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chatbot Input -->
+        <div class="chatbot-input-container">
+            <div class="chatbot-input-wrapper">
+                <input type="text" id="chatbot-input" placeholder="Ask me about monasteries, tours, or festivals..." maxlength="500">
+                <button id="chatbot-send" class="chatbot-send">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <div class="chatbot-suggestions">
+                <span class="suggestion" onclick="sendQuickMessage('What are the visiting hours?')">Visiting hours</span>
+                <span class="suggestion" onclick="sendQuickMessage('How to reach monasteries?')">Directions</span>
+                <span class="suggestion" onclick="sendQuickMessage('Photography rules')">Photography</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Chatbot Styles -->
+<link rel="stylesheet" href="{% static 'css/chatbot.css' %}">
+<!-- Chatbot JavaScript -->
+<script src="{% static 'js/chatbot.js' %}"></script>

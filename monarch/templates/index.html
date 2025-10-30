@@ -1,0 +1,203 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sikkim Monasteries - Digital Heritage & Tourism</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+            <img class="nav-logo-01" width="100px" src="{% static 'images/logo.jpeg' %}" alt="">
+                <span class="nav-logo-1"> Monastery360 </span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="{% url 'monastery:index' %}">Home</a></li>
+                <li><a href="{% url 'monastery:virtual_tours' %}">Virtual Tours</a></li>
+                <li><a href="{% url 'monastery:map' %}">Map</a></li>
+                <li><a href="{% url 'monastery:archive' %}">Archive</a></li>
+                <li><a href="{% url 'monastery:calendar' %}">Cultural Calendar</a></li>
+            </ul>
+            <div class="language-selector">
+                <select id="languageSelect">
+                    <option value="en">English</option>
+                    <option value="hi">हिंदी</option>
+                    <option value="ne">नेपाली</option>
+                    <option value="bo">བོད་ཡིག</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Monastery360</h1>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="startVirtualTour()">
+                    <a class="link360" href="{% static 'videos/virtual-tour-video.mp4' %}"><i class="fas fa-vr-cardboard"></i> Start Virtual Tour</a>
+                </button>
+                <button class="btn-secondary" onclick="ExploreMap()">
+                    <a class="maplink" href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://map.proxi.co/r/w_IG2MvLuGjKnZO5DyIe&ved=2ahUKEwjKnOGeiMKPAxUnYvUHHR5jK3MQFnoECDUQAQ&usg=AOvVaw0h1XsYTP3OSubadVZI4sPb"><i class="fas fa-map-marked-alt"></i> Explore Map</a>
+                </button>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="rotating-mandala">
+            </div>
+        </div>
+    </section>
+    <!-- Booking Section -->
+    <section id="booking" class="booking">
+        <div class="container">
+            <h2 class="section-title">Book Your Experience</h2>
+            <p class="section-subtitle">Reserve tours, events, and accommodation</p>
+            
+            <div class="booking-form">
+                <div class="form-group">
+                    <label>Experience Type</label>
+                    <select id="experienceType">
+                        <option value="">Select Experience</option>
+                        <option value="virtual-tour">Virtual Tour</option>
+                        <option value="guided-tour">Guided Tour</option>
+                        <option value="meditation">Meditation Session</option>
+                        <option value="festival">Festival Participation</option>
+                        <option value="accommodation">Accommodation</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Monastery</label>
+                    <select id="monasterySelect">
+                        <option value="">Select Monastery</option>
+                        <option value="rumtek">Rumtek Monastery</option>
+                        <option value="pemayangtse">Pemayangtse Monastery</option>
+                        <option value="tashiding">Tashiding Monastery</option>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" id="bookingDate">
+                    </div>
+                    <div class="form-group">
+                        <label>Time</label>
+                        <input type="time" id="bookingTime">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Number of People</label>
+                    <input type="number" id="peopleCount" min="1" max="20">
+                </div>
+                
+                <div class="form-group">
+                    <label>Special Requirements</label>
+                    <textarea id="specialRequirements" placeholder="Any special needs or requests..."></textarea>
+                </div>
+                
+                <button class="btn-primary" onclick="submitBooking()">
+                    <i class="fas fa-check"></i> Confirm Booking
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-2">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Monastery 360</h3>
+                    <p>Preserving and showcasing the rich cultural heritage of Sikkim's monasteries through digital innovation.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#virtual-tours">Virtual Tours</a></li>
+                        <li><a href="#interactive-map">Interactive Map</a></li>
+                        <li><a href="#digital-archives">Digital Archives</a></li>
+                        <li><a href="#cultural-calendar">Cultural Calendar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-envelope"></i> info@monastery360.org</p>
+                    <p><i class="fas fa-phone"></i> +91 98XXX XXX10</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Gangtok, Sikkim, India</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Monastery360. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Virtual Tour -->
+    <div id="virtualTourModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeVirtualTour()">&times;</span>
+            <div class="modal-body">
+                <div class="tour-viewer">
+                    <div class="panorama-placeholder">
+                        <i class="fas fa-vr-cardboard"></i>
+                        <h3>360° Panoramic View</h3>
+                        <p>Loading immersive tour experience...</p>
+                    </div>
+                    <div class="tour-controls">
+                        <button class="control-btn"><i class="fas fa-arrows-alt"></i> Move</button>
+                        <button class="control-btn"><i class="fas fa-search-plus"></i> Zoom</button>
+                        <button class="control-btn"><i class="fas fa-volume-up"></i> Audio</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Archive Viewer -->
+    <div id="archiveModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeArchive()">&times;</span>
+            <div class="modal-body">
+                <div class="archive-viewer">
+                    <div class="archive-image-large">
+                        <img id="archiveImage" src="" alt="Archive Item">
+                    </div>
+                    <div class="archive-details">
+                        <h3 id="archiveTitle"></h3>
+                        <p id="archiveDescription"></p>
+                        <div class="archive-metadata">
+                            <span id="archivePeriod"></span>
+                            <span id="archiveLocation"></span>
+                        </div>
+                        <button class="btn-primary" onclick="downloadArchive()">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+    
+    <!-- Chatbot Widget -->
+    {% include 'chatbot.html' %}
+</body>
+</html>

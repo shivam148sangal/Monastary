@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sikkim Monasteries - Digital Heritage & Tourism</title>
+    <link rel="stylesheet" href="{% static 'css/STYLE1.css' %}">
+</head>
+<body>
+    <section id="virtual-tours" class="virtual-tours">
+        <div class="container">
+            <h2 class="section-title">360° Virtual Tours</h2>
+            <p class="section-subtitle">Immerse yourself in the sacred spaces of Sikkim's monasteries</p>
+            
+            <div class="tour-grid">
+                <div class="tour-card" onclick="openVirtualTour('rumtek')">
+                    <div class="tour-image">
+                        <img src="{% static 'images/rumtek.jpg' %}" alt="Rumtek Monastery">
+                        <div class="tour-overlay">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                    </div>
+                    <div class="tour-info">
+                        <h3>Rumtek Monastery</h3>
+                        <p>Karmapa's Seat of Power</p>
+                        <span class="tour-duration">15 min tour</span>
+                    </div>
+                </div>
+
+                <div class="tour-card" onclick="openVirtualTour('pemayangtse')">
+                    <div class="tour-image">
+                        <img src="{% static 'images/pemayangtse.jpeg' %}" alt="Pemayangtse Monastery">
+                        <div class="tour-overlay">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                    </div>
+                    <div class="tour-info">
+                        <h3>Pemayangtse Monastery</h3>
+                        <p>Pure Sublime Lotus</p>
+                        <span class="tour-duration">12 min tour</span>
+                    </div>
+                </div>
+
+                <div class="tour-card" onclick="openVirtualTour('tashiding')">
+                    <div class="tour-image">
+                        <img src="{% static 'images/tashiding.jpeg' %}" alt="Tashiding Monastery">
+                        <div class="tour-overlay">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                    </div>
+                    <div class="tour-info">
+                        <h3>Tashiding Monastery</h3>
+                        <p>Divine Central Palace</p>
+                        <span class="tour-duration">18 min tour</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tour-controls">
+                <button class="btn-control"><a href="{% url 'monastery:virtual_tours' %}">PREVIOUS</a></button>
+                <button class="btn-control"><a href="{% url 'monastery:index' %}"> HOME </a></button>
+                <button class="btn-control"><a href="{% url 'monastery:virtual_page2' %}"> NEXT </a></button>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Chatbot Widget -->
+    {% include 'chatbot.html' %}
+</body>
+</html>

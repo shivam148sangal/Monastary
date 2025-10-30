@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sikkim Monasteries - Digital Heritage & Tourism</title>
+    <link rel="stylesheet" href="{% static 'css/archive.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section id="digital-archives" class="digital-archives">
+        <div class="container">
+            <div class="home">
+                <button class="btn-control"><a href="{% url 'monastery:index' %}"> HOME </a></button>
+            </div>
+            <h2 class="section-title">Digital Archives</h2>
+            <p class="section-subtitle">Explore ancient manuscripts, murals, and historical documents</p>
+            
+            <div class="search-section">
+                <div class="search-box">
+                    <input type="text" id="archiveSearch" placeholder="Search manuscripts, murals, documents...">
+                    <button onclick="searchArchives()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="search-filters">
+                    <select id="categoryFilter">
+                        <option value="">All Categories</option>
+                        <option value="manuscripts">Manuscripts</option>
+                        <option value="murals">Murals</option>
+                        <option value="documents">Historical Documents</option>
+                        <option value="artifacts">Artifacts</option>
+                    </select>
+                    <select id="periodFilter">
+                        <option value="">All Periods</option>
+                        <option value="ancient">Ancient</option>
+                        <option value="medieval">Medieval</option>
+                        <option value="modern">Modern</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="archives-grid">
+                <div class="archive-item" onclick="viewArchive('manuscript1')">
+                    <div class="archive-image">
+                        <img src="{% static 'images/buddha-manuscript.jpeg' %}" alt="Ancient Manuscript">
+                        <div class="archive-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="archive-info">
+                        <h4>Buddhist Sutra Manuscript</h4>
+                        <p>17th Century, Rumtek Monastery</p>
+                        <span class="archive-category">Manuscripts</span>
+                    </div>
+                </div>
+
+                <div class="archive-item" onclick="viewArchive('mural1')">
+                    <div class="archive-image">
+                        <img src="{% static 'images/sacred wall.jpg' %}" alt="Sacred Mural">
+                        <div class="archive-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="archive-info">
+                        <h4>Sacred Wall Mural</h4>
+                        <p>Pemayangtse Monastery, 18th Century</p>
+                        <span class="archive-category">Murals</span>
+                    </div>
+                </div>
+
+                <div class="archive-item" onclick="viewArchive('document1')">
+                    <div class="archive-image">
+                        <img src="{% static 'images/monastery foundation.jpeg' %}" alt="Historical Document">
+                        <div class="archive-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="archive-info">
+                        <h4>Monastery Foundation Document</h4>
+                        <p>Tashiding Monastery, 1642</p>
+                        <span class="archive-category">Documents</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ai-features">
+                <h3>AI-Powered Features</h3>
+                <div class="ai-grid">
+                    <div class="ai-card">
+                        <i class="fas fa-brain"></i>
+                        <h4>Smart Categorization</h4>
+                        <p>Automatically organize artifacts by type, period, and significance</p>
+                    </div>
+                    <div class="ai-card">
+                        <i class="fas fa-search-plus"></i>
+                        <h4>Advanced Search</h4>
+                        <p>Find specific items using natural language queries</p>
+                    </div>
+                    <div class="ai-card">
+                        <i class="fas fa-link"></i>
+                        <h4>Related Items</h4>
+                        <p>Discover connections between different artifacts</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Chatbot Widget -->
+    {% include 'chatbot.html' %}
+</body>
+</html>

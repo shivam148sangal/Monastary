@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sikkim Monasteries - Digital Heritage & Tourism</title>
+    <link rel="stylesheet" href="360style.css">
+</head>
+<body>
+    <div id="container">
+        <div id="loading">
+            <div class="spinner"></div>
+            <p>Loading Sikkim Monastery...</p>
+        </div>
+        
+        <div id="viewer" style="display: none;">
+            <canvas id="monastery-canvas"></canvas>
+            
+            <div id="controls">
+                <div class="control-panel">
+                    <h3>Sikkim Monastery 360° View</h3>
+                    <div class="control-group">
+                        <label>Rotation Speed:</label>
+                        <input type="range" id="rotation-speed" min="0" max="2" step="0.1" value="0.5">
+                    </div>
+                    <div class="control-group">
+                        <label>Auto Rotate:</label>
+                        <input type="checkbox" id="auto-rotate" checked>
+                    </div>
+                    <div class="control-group">
+                        <label>View Mode:</label>
+                        <select id="view-mode">
+                            <option value="exterior">Exterior View</option>
+                            <option value="interior">Prayer Hall</option>
+                            <option value="courtyard">Courtyard View</option>
+                            <option value="mountain">Mountain View</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <button id="reset-view">Reset View</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="info-panel">
+                <h4>Sikkim Monastery Information</h4>
+                <div id="info-content">
+                    <p><strong>Architecture:</strong> Traditional Tibetan Buddhist</p>
+                    <p><strong>Founded:</strong> 17th Century</p>
+                    <p><strong>Location:</strong> Himalayan Mountains, Sikkim</p>
+                    <p><strong>Features:</strong> Prayer Wheels, Stupas, Prayer Flags</p>
+                    <p><strong>Tradition:</strong> Nyingma School of Buddhism</p>
+                </div>
+            </div>
+            
+            <div id="navigation">
+                <div class="nav-button" id="prev-view">‹</div>
+                <div class="nav-button" id="next-view">›</div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="360.js"></script>
+    <!-- Chatbot Widget -->
+    {% include 'chatbot.html' %}
+</body>
+</html>
