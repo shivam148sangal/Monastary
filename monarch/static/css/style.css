@@ -85,7 +85,7 @@ body {
 }
 
 .hero {
-    background-image: url('/static/images/background-2.jpeg');
+    background-image: url('../images/background-2.jpeg');
     background-size: cover;
     min-height: 100vh;
     display: flex;

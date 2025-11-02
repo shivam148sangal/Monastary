@@ -32,7 +32,7 @@ body {
 }
 .virtual-tours {
     padding: 8rem;
-    background-image: url(cloudy\ image.png);
+    background-image: url('../images/cloudy image.png');
 }
 
 .tour-grid {
